@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hbu-hQ-BVY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xzj-u1-zdn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,9 +40,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="797"/>
+            <point key="canvasLocation" x="1884" y="796.55172413793105"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Title-->
         <scene sceneID="bVJ-OV-UrX">
             <objects>
                 <viewController id="Vcb-mC-L4B" customClass="SecondViewController" customModule="NavigationApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,7 +57,7 @@
                                     <color key="titleColor" red="1" green="0.99911328349999995" blue="0.89169317370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aft-2o-HAK" kind="presentation" identifier="Edit" id="Gc7-OO-ent"/>
+                                    <segue destination="aft-2o-HAK" kind="presentation" id="vf4-Ud-Vki"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,10 +68,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2wM-EH-ZY5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="yVK-5K-Xja">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="MPB-xV-Sl6">
+                            <connections>
+                                <segue destination="aft-2o-HAK" kind="presentation" identifier="edit" id="ZgV-9I-hkl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lyv-Gt-yQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="797"/>
+            <point key="canvasLocation" x="2620" y="796.55172413793105"/>
         </scene>
         <!--Third View Controller-->
         <scene sceneID="eQJ-VJ-yDP">
@@ -87,24 +94,42 @@
                                 <state key="normal" title="Close VC">
                                     <color key="titleColor" red="1" green="0.99911328349999995" blue="0.89169317370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeVC" destination="aft-2o-HAK" eventType="touchUpInside" id="jtL-fV-4SR"/>
+                                    <segue destination="UZn-bh-n2C" kind="unwind" unwindAction="unwindSegueWithSegue:" id="7vi-uq-RKw"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5iT-AX-rO9">
+                                <rect key="frame" x="96" y="104" width="183" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.33028021460000001" green="0.79350059620000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="JJr-zy-I0V" firstAttribute="trailing" secondItem="5iT-AX-rO9" secondAttribute="trailing" constant="96" id="4vq-ZB-O6l"/>
+                            <constraint firstItem="5iT-AX-rO9" firstAttribute="top" secondItem="JJr-zy-I0V" secondAttribute="top" constant="84" id="Dgf-EV-Q8x"/>
                             <constraint firstItem="05P-bn-dS5" firstAttribute="centerX" secondItem="czz-Mx-GuD" secondAttribute="centerX" id="aj6-fL-mqN"/>
                             <constraint firstItem="05P-bn-dS5" firstAttribute="centerY" secondItem="czz-Mx-GuD" secondAttribute="centerY" id="jDz-10-tlY"/>
+                            <constraint firstItem="5iT-AX-rO9" firstAttribute="leading" secondItem="JJr-zy-I0V" secondAttribute="leading" constant="96" id="yxG-0d-EC5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JJr-zy-I0V"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="5iT-AX-rO9" id="SGl-l7-wxC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3y-1Y-dlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="UZn-bh-n2C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2433" y="797"/>
+            <point key="canvasLocation" x="3372" y="796.55172413793105"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NrF-cC-N8c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hbu-hQ-BVY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="hMb-gB-IUm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="44o-PS-YG9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -117,7 +142,61 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OE-O4-UFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181.59999999999999" y="796.55172413793105"/>
+            <point key="canvasLocation" x="1120.8" y="796.55172413793105"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="38t-b8-eV0">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xzj-u1-zdn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qfu-yy-uES">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Hbu-hQ-BVY" kind="relationship" relationship="viewControllers" id="YYr-sh-aQY"/>
+                        <segue destination="TFo-eF-Icl" kind="relationship" relationship="viewControllers" id="7uX-6o-h3D"/>
+                        <segue destination="Dxb-Dh-FVF" kind="relationship" relationship="viewControllers" id="TiN-jU-dl9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6S-vv-EMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="350" y="797"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZaS-bf-sSH">
+            <objects>
+                <viewController id="TFo-eF-Icl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eRU-XA-FQs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="c19-3f-Zhd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="O71-FF-0Ja"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghs-xh-sdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="1535"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8BL-ni-AIf">
+            <objects>
+                <viewController id="Dxb-Dh-FVF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LaS-f0-Fjw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.99463481730000003" blue="0.53244553589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="vJm-fp-cIS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="fjA-an-Zoo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FeJ-7y-Phx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="1535"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZgV-9I-hkl"/>
+    </inferredMetricsTieBreakers>
 </document>
